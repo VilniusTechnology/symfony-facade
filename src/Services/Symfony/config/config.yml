@@ -1,0 +1,50 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: command_services.yml }
+
+
+framework:
+    #esi:             ~
+    translator:      { fallbacks: ["%locale%"] }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_proxies: ~
+    session:         ~
+    fragments:       ~
+    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+
+#app/config/config.yml
+ongr_elasticsearch:
+    connections:
+        default:
+            hosts:
+                - { host: 127.0.0.1:9200 }
+            index_name: blog
+            settings:
+                refresh_interval: -1
+                number_of_replicas: 1
+
+    managers:
+        default:
+            connection: default
+            mappings:
+                - ElasticDocumentsBundle
+            settings:
+                connection: settings
+                mappings:
+                    - ONGRSettingsBundle

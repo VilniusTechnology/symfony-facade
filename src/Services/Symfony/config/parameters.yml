@@ -1,0 +1,27 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: symfony
+    database_user: root
+    database_password: null
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: ThisTokenIsNotSoSecretChangeIt
+    mm.es.host: '127.0.0.1:9200'
+    mm.default.index: match-merge-test
+    mm.suggestions.es.host: '%mm.es.host%'
+    mm.suggestions.index_name: match-merge-suggestions-test
+    mm.matches.index_name: match-merge-matches-test
+    mm.matches.es.host: '%mm.es.host%'
+    mm.sources.index_name: match-merge-sources-test
+    mm.sources.es.host: '%mm.es.host%'
+    default.es.host: '127.0.0.1:9200'
+    mm.human_suggestion.index_name: match-merge-human-suggestions-test
+    mm.human_suggestion.es.host: '%mm.es.host%'
+    mm.algorithm_suggestion.index_name: match-merge-algorithm-suggesion-test
+    mm.algorithm_suggestion.es.host: '%mm.es.host%'
