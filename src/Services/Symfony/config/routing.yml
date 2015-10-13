@@ -1,0 +1,7 @@
+#settings bundle routes for testing
+#fos_js_routing:
+#    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+#ongr_settings_routing:
+#    resource: "@ONGRSettingsBundle/Resources/config/routing.yml"
+#    prefix: /settings_prefix
