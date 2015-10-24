@@ -4,9 +4,13 @@ php:
 before_script:
   - composer self-update
   - composer update --prefer-dist || composer update --prefer-source
+#  - npm install -g casperjs
+#  - phantomjs --version; casperjs --version
+#  - grunt connect:test:keepalive & #shooting up a web server for the tests
 script:
 #  - vendor/bin/phpunit
-  - rm -v ./vendor/autoload.php ./vendor/composer/!(installed.json)
+#  - npm test
+#  - rm -v ./vendor/autoload.php ./vendor/composer/!(installed.json)
 after_script:
   - vendor/bin/coveralls
 cache:
