@@ -1,8 +1,6 @@
-Symfony bundle instalations on Laravel 5.1
-===========================================
-
 Usage example with FOSJsRoutingBundle
--------------------------------------
+=====================================
+
 
 Now install your Symfony bundle, in this case FOSJsRoutingBundle:
 
@@ -37,7 +35,7 @@ fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 ```
 
-Run command: `assets:install --symlink --target .`
+From console run command: ` php artisan symfony:command 'assets:install --symlink --target public' `
 
 Create the controler and template that will be executed by controllers action.
 
