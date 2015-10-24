@@ -1,8 +1,10 @@
-![Build Status](https://codeship.com/projects/1b0ec360-ed12-0132-15ff-6697a529e469/status?branch=master)
+[![Scrutinizer Code Quality]
+(https://scrutinizer-ci.com/g/VilniusTechnology/symfony-facade/badges/quality-score.png?b=master)]
+(https://scrutinizer-ci.com/g/VilniusTechnology/symfony-facade/?branch=master)
 
-![Scrutinizer](https://scrutinizer-ci.com/b/lmikelionis/symfonys-facade/badges/quality-score.png?b=master)
 ![CodeCoverage](https://scrutinizer-ci.com/b/lmikelionis/symfonys-facade/badges/coverage.png?b=master)
-![ScrutinizerBuild](https://scrutinizer-ci.com/b/lmikelionis/symfonys-facade/badges/build.png?b=master)
+
+![TravisBuild](https://travis-ci.org/VilniusTechnology/symfony-facade.svg)
 
 
 Symfonys facade for Laravel5
@@ -35,7 +37,6 @@ First you must enter configurational parameters in app.php file.
 This can be done by adding following lines to app.php file:
 
 ```php
-
     'symfonysfacade_app_dir' => '/storage/symfony',
     'symfonysfacade_bundles' => '\VilniusTechnology\SymfonyBundles',
 
@@ -49,7 +50,6 @@ Setting `symfonysfacade_bundles` - specifies namespace where Symfonys bundles ar
 Namespaces should be set in `composer.json`:
 
 ``` json
-
     "autoload": {
         "classmap": [
             "database"
@@ -66,7 +66,6 @@ In namespace `VilniusTechnology` (path: `packages/VilniusTechnology/`) create fi
 with these contents:
 
 ``` php
-
     <?php
     
     namespace VilniusTechnology
