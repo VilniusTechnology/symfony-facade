@@ -7,6 +7,5 @@
  * Time: 18.55
  */
 
-
-Route::match(['get', 'post'], 'sfbInstall', 'ManagerController@interpreter');
-Route::match(['get', 'post'], 'sfbInstall/run', 'ManagerController@run');
+//Route::match(['get', 'post'], 'sfbInstall', 'ManagerController@interpreter');
+//Route::match(['get', 'post'], 'sfbInstall/run', 'ManagerController@run');

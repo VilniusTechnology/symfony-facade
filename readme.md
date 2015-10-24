@@ -1,10 +1,9 @@
+![TravisBuild](https://travis-ci.org/VilniusTechnology/symfony-facade.svg)
 [![Scrutinizer Code Quality]
 (https://scrutinizer-ci.com/g/VilniusTechnology/symfony-facade/badges/quality-score.png?b=master)]
 (https://scrutinizer-ci.com/g/VilniusTechnology/symfony-facade/?branch=master)
-
 ![CodeCoverage](https://scrutinizer-ci.com/b/lmikelionis/symfonys-facade/badges/coverage.png?b=master)
 
-![TravisBuild](https://travis-ci.org/VilniusTechnology/symfony-facade.svg)
 
 
 Symfonys facade for Laravel5
@@ -95,14 +94,15 @@ You can do this by running command:
 `mkdir storage/app/symfony/config ; 
 cp -a vendor/vilnius-technology/symfonys-facade/Tests/symfony/config storage/app/symfony`.
 
-You are ready 2 Go ;)
+Into console run command: ` php artisan symfony:command 'debug:container' `. 
 
-Into text box enter: `debug:container`. Pres Go.
+If you get symfonys service list, You are ready 2 Go ;)
 
 If you got a list of symfonys services, congrats. Now You can move to symfonys bundle instalations on Laravel 5.1 tutorial.
 
-Follow this example tutorial [tutorial](docs/fos.md) to get know, how precisely install Symfony2 bundles, with default configuration
+    Follow this example tutorial [tutorial](docs/fos.md) to get know, how precisely install Symfony2 bundles, with default configuration
 
+    As you noticed You can use symfony commands by passing them to `php artisan symfony:command '$SYMFONY2_COMMAND'`
 
 Customizable configuration
 --------------------------
