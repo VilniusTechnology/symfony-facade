@@ -15,14 +15,14 @@ Simply add you Symfony centric bundle to `composer.json` install it, configure i
 
  It supporst such features as:
  
- - Symfony's dependency injection container with symfony config files.
+ - Symfony's dependency injection container that loads from standard symfony config files.
  
- - Route porting. Routes that are configured in `routes.yml` files.
+ - Route porting. Routes that are configured in `routes.yml` files are being accessible from Laravel.
  
- - Symfony commands.
+ - Symfony commands can be executed with artisan command of from admin form.
  
  
- As this package is still in early beta, not all functions and compatabilities are tested and developed.
+ As this package is still in early beta, not all functions and compatibilities are tested and developed.
 
 Installation and configuration
 ==============================
@@ -74,7 +74,7 @@ In namespace `VilniusTechnology` (path: `$LARVEL_PROJECT_ROOT/packages/VilniusTe
         }
     }
 ```
-This is where your Symfonys bundles will be registred. Familliar isint it? :)
+This is where your Symfony bundles will be registered. Familiar isin't it? :)
 
 Add bundle loading class namespace loading to composer.json:
 ```json
@@ -89,8 +89,11 @@ More details in configuration section.
 
 Now run `composer dump-autoload`.
 
-Copy contents of `vendor/vilnius-technology/symfony-facade/Tests/symfony/config` to ``.
-You can do this by running command: ` mkdir storage/app/symfony/config ; cp -a vendor/vilnius-technology/symfonys-facade/Tests/symfony/config storage/app/symfony`.
+Copy contents of `vendor/vilnius-technology/symfony-facade/Tests/symfony/config` to 
+`storage/app/symfony/config`.
+You can do this by running command: 
+`mkdir storage/app/symfony/config ; 
+cp -a vendor/vilnius-technology/symfonys-facade/Tests/symfony/config storage/app/symfony`.
 
 You are ready 2 Go ;)
 
@@ -98,7 +101,7 @@ Into text box enter: `debug:container`. Pres Go.
 
 If you got a list of symfonys services, congrats. Now You can move to symfonys bundle instalations on Laravel 5.1 tutorial.
 
-Follow this exaple tutorial [ ... ] to get know, how precisely install symfonys bundles.
+Follow this example tutorial [tutorial](docs/fos.md) to get know, how precisely install Symfony2 bundles, with default configuration
 
 
 Customizable configuration
@@ -124,63 +127,6 @@ In this file, you will be registering your Symfony bundles.
 
 In path that was specified in `symfonysfacade_app_dir` (`storage/symfony`) create directory `config`
 In it you should create or copy, usual symfonys configuration files (config.yml, parameters.yml and security.yml).
-
-
-Symfony bundle instalations on Laravel 5.1
-===========================================
-
-Usage example with FOSJsRoutingBundle
--------------------------------------
-
-Now install your Symfony bundle, in this case FOSJsRoutingBundle:
-
-` $ composer require friendsofsymfony/jsrouting-bundle `.
-
-
-In namespace `VilniusTechnology` (path: `$LARVEL_PROJECT_ROOT/packages/VilniusTechnology/`) create file (if its not created) `SymfonyBundles.php`, with these contents:
-
-``` php
-    <?php
-    
-    namespace VilniusTechnology;
-    
-    use FOS\JsRoutingBundle\FOSJsRoutingBundle; #example bundle
-    
-    class SymfonyBundles
-    {
-        public static function getBundles()
-        {
-            return [
-                new FOSJsRoutingBundle(), #example bundle
-            ];
-        }
-    }
-```
-
-Add routing configuration to your `routing.yml`:
-
-```yml
-# app/config/routing.yml
-fos_js_routing:
-    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
-```
-
-Run command: `assets:install --symlink --target .`
-
-Create the controler and template that will be executed by controllers action.
-
-Add to created template:
-
-`
-<script src="/bundles/fosjsrouting/js/router.js"></script>
-<script src="{{ route('fos_js_routing_js', ['callback' => 'fos.Router.setData']) }}"></script>
-`
-
-Note, that we switched here symfonys original twig helper `{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}` 
-with Laravels `{{ route('fos_js_routing_js', ['callback' => 'fos.Router.setData']) }}`.
-
-
-Run the controllers action template. You should get an alert `/foo/10/bar`.
 
 License
 ---------
