@@ -97,6 +97,9 @@ class SymfonysFacadeServiceProvider extends ServiceProvider
         }
     }
 
+    /**
+     * Registers commands facade.
+     */
     public function registerCommands() {
         $this->commands(['VilniusTechnology\SymfonysFacade\Commands\SymfonyCommand']);
     }

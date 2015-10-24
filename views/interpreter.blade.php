@@ -1,12 +1,27 @@
+{{--{{ route('fos_js_routing_js', ['callback' => 'fos.Router.setData']) }}--}}
+
+<script src="/bundles/fosjsrouting/js/router.js"></script>
+<script src="/routing/js/routing?callback=fos.Router.setData"></script>
+<script src="{{ route('fos_js_routing_js', ['callback' => 'fos.Router.setData']) }}"></script>
+
+
+    <script>
+        window.onload = function() {
+            var routeInJS = Routing.generate('my_route_to_expose', { id: 10 });
+            alert(routeInJS);
+        };
+    </script>
+
 
         <h1>Symfony command:</h1>
 
+        <pre>{!! $response !!}</pre>
+
         <hr/>
 
-            {!! Form::open([ 'url' => 'blog/admin/run' ])  !!}
-            {!! Form::label('command', 'Command: ') !!}
-            {!! Form::text('command', null, ['class' => 'form-control']) !!}
-        <br/>
-                {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control']) !!}
-
-            {!! Form::close()  !!}
+        <form method="POST" action="/sfbInstall/run">
+            <label>Command: </label>
+            <input type="text" name="command" class="form-control"/>
+            <input type="submit" name="Go" />
+            {!! csrf_field() !!}
+        </form>

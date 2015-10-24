@@ -5,7 +5,8 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "laravel/framework": "~5.1"
+        "laravel/framework": "~5.1",
+        "symfony/symfony": "~2.6"
     },
     "require-dev": {
         "ongr/elasticsearch-bundle": "~0.1",
@@ -18,7 +19,7 @@
         "ongr/ongr-strict-standard": "2.*",
         "squizlabs/php_codesniffer": "2.*",
         "orchestra/testbench": "~3.0",
-        "illuminate/html": "~5.0",
+        "illuminate/html": "~5",
         "laravel/laravel": "~5",
         "satooshi/php-coveralls": "dev-master"
     },

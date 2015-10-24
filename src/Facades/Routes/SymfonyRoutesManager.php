@@ -4,6 +4,7 @@ use Illuminate\Routing\Router;
 use Symfony\Component\Routing\Route;
 use VilniusTechnology\SymfonysFacade\Services\Symfony\SymfonyContainer;
 
+
 class SymfonyRoutesManager
 {
 
@@ -18,6 +19,11 @@ class SymfonyRoutesManager
         $this->routesFromSymfony = $this->rb->convertRoutes($this->getRawRoutes());
     }
 
+    /**
+     * Expose symfonys routes to Laravel.
+     *
+     * @param Router $router
+     */
     public function addSymfonyRoutes(Router $router)
     {
         foreach ($this->routesFromSymfony as $route) {

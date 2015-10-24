@@ -8,5 +8,5 @@
  */
 
 
-Route::match(['get', 'post'], 'interpreter', 'ManagerController@interpreter');
-Route::match(['get', 'post'], 'blog/admin/run', 'ManagerController@run');
+Route::match(['get', 'post'], 'sfbInstall', 'ManagerController@interpreter');
+Route::match(['get', 'post'], 'sfbInstall/run', 'ManagerController@run');

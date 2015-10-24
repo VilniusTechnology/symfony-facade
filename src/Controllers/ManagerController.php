@@ -9,30 +9,23 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use ONGR\ElasticsearchBundle\ORM\Manager;
-use VilniusTechnology\SymfonysFacade\Services\Symfony\SymfonyContainer;
+use VilniusTechnology\SymfonysFacade\Facades\Commands\SymfonyCommandsFacade;
 
 class ManagerController extends Controller
 {
-    private $manager;
-
-    private $ssc;
-
     public function interpreter()
     {
-        return view('SymfonysFacade::global');
+        return view('SymfonysFacade::global', ['response' => '']);
     }
 
-    public function run(Request $request, SymfonyContainer $sc)
+    public function run(Request $request, SymfonyCommandsFacade $sc)
     {
-        $this->ssc = $sc;
-
-        /** @var Manager $manager */
-        $this->manager = $this->ssc->getSymfonyService('es.manager');
-
+        $response = '';
         $input = $request->all();
-        $this->ssc->runCommand($input['command']);
+        if (isset($input['command'])) {
+            $response = $sc->runCommand($input['command']);
+        }
 
-        return view('SymfonysFacade::global');
+        return view('SymfonysFacade::global', ['response' => $response]);
     }
 }
