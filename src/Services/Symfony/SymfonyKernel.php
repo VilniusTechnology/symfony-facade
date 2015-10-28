@@ -54,6 +54,7 @@ class SymfonyKernel extends Kernel
         $bundles = [
             new FrameworkBundle(),
             new TwigBundle(),
+            new SecurityBundle(),
         ];
 
         return array_merge($this->getBundlesFromConfig(), $bundles);

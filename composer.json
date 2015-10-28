@@ -6,7 +6,8 @@
     "type": "project",
     "require": {
         "laravel/framework": "~5.1",
-        "symfony/symfony": "~2.6"
+        "symfony/symfony": "~2.6",
+        "symfony/security-bundle": "~2.6"
     },
     "require-dev": {
         "ongr/elasticsearch-bundle": "~0.1",
