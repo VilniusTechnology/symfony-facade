@@ -28,19 +28,19 @@ class SymfonyKernel extends Kernel
         // Set Symfony app dir.
         $appDir = config('app.symfonysfacade_app_dir');
         if (isset($appDir)) {
-            $this->appDir = base_path() . '/' . $appDir . '/' . $env;
+            $this->appDir =  base_path()  . '/'. $appDir . $env;
         } else {
-            $this->appDir = base_path() .'/storage/app/symfony';
+            $this->appDir = base_path() . '/storage/app/symfony';
         }
 
         parent::__construct($env, $debug);
 
-        // Set Symfony log dir.
+        //Set Symfony log dir.
         $logDir = config('app.symfonysfacade_log_dir');
         if (isset($logDir)) {
-            $this->logDir = base_path() . '/' . $logDir . '/' . $env;
+            $this->logDir = $logDir . $env;
         } else {
-            $this->logDir = base_path() . '/storage/app/symfony'. $env;
+            $this->logDir = base_path() . '/storage/app/symfony/'. $env;
         }
     }
 
@@ -61,7 +61,7 @@ class SymfonyKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load( $this->appDir . '/config/config.yml');
+        $loader->load($this->appDir . '/config/config.yml');
     }
 
     public function getRootDir()
