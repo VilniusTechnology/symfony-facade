@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\App;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class SymfonyContainer  {
+class SymfonyContainer
+{
 
     /** @var ContainerInterface  */
     private $container;
@@ -15,6 +16,7 @@ class SymfonyContainer  {
     {
         $kernel = new SymfonyKernel(App::environment(), true);
         $kernel->boot();
+
 
         $this->container = $kernel->getContainer();
     }

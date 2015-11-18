@@ -19,10 +19,11 @@ use VilniusTechnology\SymfonysFacade\Services\Symfony\SymfonyContainer;
 
 class SymfonysFacadeServiceProvider extends ServiceProvider
 {
-
     private $symfonyContainer;
 
     private $routebuilder;
+
+    private $symfonyCommandsFacade;
 
     /** @var SymfonyRoutesManager $routeManager */
     public $routeManager;
@@ -50,19 +51,19 @@ class SymfonysFacadeServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('VilniusTechnology\SymfonysFacade\Services\Symfony\SymfonyContainer', function ($app) {
+        $this->app->bind('VilniusTechnology\SymfonysFacade\Services\Symfony\SymfonyContainer', function () {
             return $this->symfonyContainer;
         });
 
-        $this->app->bind('VilniusTechnology\SymfonysFacade\Facades\Routes\SymfonyRoutesManager', function ($app) {
+        $this->app->bind('VilniusTechnology\SymfonysFacade\Facades\Routes\SymfonyRoutesManager', function () {
             return $this->routeManager;
         });
 
-        $this->app->bind('VilniusTechnology\SymfonysFacade\Facades\Routes\LaraverRouteBuilder', function ($app) {
+        $this->app->bind('VilniusTechnology\SymfonysFacade\Facades\Routes\LaraverRouteBuilder', function () {
             return $this->routebuilder;
         });
 
-        $this->app->bind('VilniusTechnology\SymfonysFacade\Facades\Commands\SymfonyCommandsFacade', function ($app) {
+        $this->app->bind('VilniusTechnology\SymfonysFacade\Facades\Commands\SymfonyCommandsFacade', function () {
             return $this->symfonyCommandsFacade;
         });
     }
@@ -74,12 +75,11 @@ class SymfonysFacadeServiceProvider extends ServiceProvider
      */
     public function setupRoutes(Router $router)
     {
-        $router->group(['namespace' => 'VilniusTechnology\SymfonysFacade\Controllers'], function ($router) {
+        $router->group(['namespace' => 'VilniusTechnology\SymfonysFacade\Controllers'], function () {
             require __DIR__ . '/Http/routes.php';
         });
 
        $this->routeManager->addSymfonyRoutes($router);
-
     }
 
     /**
